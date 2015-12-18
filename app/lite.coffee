@@ -1,6 +1,7 @@
 load = (name, path, apikey, done) ->
   fullPath = "#{path}/#{name}"
-  fullPath += "?key=#{apikey}" if apikey
+  fullPath += "?key=#{apikey}" if apikey?
+  alert("LOADING #{fullPath}")
 
   if /\.js$/.test name
     el = document.createElement("script")
@@ -18,7 +19,7 @@ load = (name, path, apikey, done) ->
 
 Lite =
   initialize: (apikey) ->
-    from = if apikey then "https://thomaslite.edapp.com/" else "local"
+    from = if apikey then "https://thomaslite.edapp.com/" else ""
     files = [
       "css/app.css"
       "js/vendor.js"
