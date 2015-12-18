@@ -1,7 +1,6 @@
 load = (name, path, apikey, done) ->
   fullPath = "#{path}/#{name}"
   fullPath += "?key=#{apikey}" if apikey?
-  alert("LOADING #{fullPath}")
 
   if /\.js$/.test name
     el = document.createElement("script")
@@ -9,6 +8,7 @@ load = (name, path, apikey, done) ->
     el.setAttribute("src", fullPath)
 
   else if /\.css$/.test name
+    fullPath = fullPath.replace /^\//, ''
     el = document.createElement("link")
     el.setAttribute("rel", "stylesheet")
     el.setAttribute("type", "text/css")
