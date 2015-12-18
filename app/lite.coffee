@@ -18,7 +18,7 @@ load = (name, path, apikey, done) ->
 
 Lite =
   initialize: (apikey) ->
-    from = if apikey then "https://thomaslite.edapp.com/" else ""
+    from = if apikey then "https://thomaslite.edapp.com/" else "local"
     files = [
       "css/app.css"
       "js/vendor.js"
