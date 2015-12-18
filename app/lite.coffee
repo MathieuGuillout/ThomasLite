@@ -28,10 +28,11 @@ Lite =
 
     do next = ->
       if files.length
+        new (require "lib/logger")(true, "thomas", "#46b4e9") JSON.stringify(files)
         file = files.shift()
         load file, from, apikey, next
       else
-        new (require "lib/logger")(true, "THOMAS", "#46B4E9") "Hello!"
+        new (require "lib/logger")(true, "thomas", "#46b4e9") "Hello!"
         require("app").initialize()
 
 module.exports = Lite
